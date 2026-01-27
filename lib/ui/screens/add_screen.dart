@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_manager/logic/task_cubit.dart';
 import 'package:task_manager/model/task_model.dart';
-import 'package:task_manager/ui%20/widgets/app_button.dart';
-import 'package:task_manager/ui%20/widgets/date_picker_widget.dart';
-import 'package:task_manager/ui%20/widgets/priority_widget.dart';
-import 'package:task_manager/ui%20/widgets/text_input_field_widget.dart';
-
 import '../../core/utils.dart';
+import '../widgets/app_button.dart';
+import '../widgets/date_picker_widget.dart';
+import '../widgets/priority_widget.dart';
+import '../widgets/text_input_field_widget.dart';
 
 class AddScreen extends StatefulWidget {
   final TaskModel? task;

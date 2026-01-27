@@ -5,10 +5,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:task_manager/logic/task_cubit.dart';
 import 'package:task_manager/model/task_model.dart';
 import 'package:task_manager/repositories/task_repository.dart';
-import 'package:task_manager/test/one_screen.dart';
-
-import 'package:task_manager/ui%20/screens/add_screen.dart';
-import 'package:task_manager/ui%20/screens/task_screen.dart';
+import 'package:task_manager/ui/screens/add_screen.dart';
+import 'package:task_manager/ui/screens/task_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,11 +29,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => TaskCubit(taskRepository: taskRepository)..order(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => TaskCubit(taskRepository: taskRepository)..order(),
+        ),
+      ],
       child: MaterialApp(
         title: 'Flutter Demo',
-        theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
+        theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
         home: const TaskScreen(),
       ),
     );

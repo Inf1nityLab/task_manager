@@ -32,6 +32,7 @@ class TaskModel {
     bool? isCompleted,
     int? priority,
     DateTime? dueDate,
+    String? categoryId,
   }) {
     return TaskModel(
         id: id ?? this.id,
@@ -40,7 +41,7 @@ class TaskModel {
         dueDate: dueDate ?? this.dueDate,
         priority: priority ?? this.priority,
         isCompleted: isCompleted ?? this.isCompleted,
-        categoryId: this.categoryId,
+        categoryId: categoryId ?? this.categoryId,
         createdAt: this.createdAt);
   }
 }

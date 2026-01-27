@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_manager/core/utils.dart';
 import 'package:task_manager/logic/task_cubit.dart';
-import 'package:task_manager/ui%20/screens/add_screen.dart';
+import 'package:task_manager/ui/screens/add_screen.dart';
 
 class TaskScreen extends StatelessWidget {
   const TaskScreen({super.key});
@@ -30,7 +30,7 @@ class TaskScreen extends StatelessWidget {
                           title: Text(task.title, maxLines: 3),
                           subtitle: Text(task.description),
                           trailing: Row(
-                            mainAxisSize: .min,
+                            mainAxisSize: MainAxisSize.min,
                             children: [
                               IconButton(
                                 onPressed: () {

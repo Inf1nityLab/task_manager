@@ -9,12 +9,16 @@ abstract class TaskRepository {
   Future<void> updateTask({required TaskModel task});
 
   Future<void> deleteTask({required int id});
+
+
 }
 
 class TaskRepositoryImpl implements TaskRepository {
   final Isar _isar;
 
   TaskRepositoryImpl({required Isar isar}) : _isar = isar;
+
+  Isar get isar => _isar;
 
   @override
   Future<void> createTask({required TaskModel task}) async {

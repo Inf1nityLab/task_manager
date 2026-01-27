@@ -12,8 +12,8 @@ class TextInputFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: .start,
-      mainAxisSize: .min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
         Text(label),
         SizedBox(height: 10,),
