@@ -14,16 +14,23 @@ class CategoryCubit extends Cubit<CategoryState> {
       super(CategoryInitial());
 
 
-  void loadCategories(){
-
+  void loadCategories() async {
+    try {
+      emit(CategoryLoading());
+      final categories = await _categoryRepositories.readCategory();
+      emit(CategoryLoaded(categories: categories));
+    } catch (e) {
+      emit(CategoryError(message: 'Ошибка загрузки категорий'));
+    }
   }
+
   // event - события
-  void createCategory({required String name}) async{
-    try{
+  void createCategory({required String name}) async {
+    try {
       final category = Category(name: name);
       await _categoryRepositories.createCategory(category: category);
       loadCategories();
-    } catch (e){
+    } catch (e) {
       emit(CategoryError(message: 'Произошло ошибка добавление категории'));
     }
   }

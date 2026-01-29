@@ -11,20 +11,16 @@ final class CategoryInitial extends CategoryState {
 
 final class CategoryLoading extends CategoryState {
   @override
-  // TODO: implement props
-  List<Object?> get props => [];
+  List<Object> get props => [];
 }
 
-final class CategorySuccess extends CategoryState{
+final class CategoryLoaded extends CategoryState {
   final List<Category> categories;
 
-  const CategorySuccess({required this.categories});
-  @override
-  // TODO: implement props
-  List<Object?> get props => [
-    categories
-  ];
+  const CategoryLoaded({required this.categories});
 
+  @override
+  List<Object> get props => [categories];
 }
 
 final class CategoryError extends CategoryState{

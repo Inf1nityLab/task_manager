@@ -27,7 +27,23 @@ class TaskScreen extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final task = state.task[index];
                         return ListTile(
-                          title: Text(task.title, maxLines: 3),
+                          leading: Checkbox(
+                            value: task.isCompleted,
+                            onChanged: (value) {
+                              context.read<TaskCubit>().updateTask(
+                                    task: task.copyWith(isCompleted: value),
+                                  );
+                            },
+                          ),
+                          title: Text(
+                            task.title,
+                            maxLines: 3,
+                            style: TextStyle(
+                              decoration: task.isCompleted
+                                  ? TextDecoration.lineThrough
+                                  : null,
+                            ),
+                          ),
                           subtitle: Text(task.description),
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
